@@ -1,0 +1,133 @@
+/* =====================================
+   PAGE BASE STYLING
+   ===================================== */
+.pageContainer {
+  min-height: 100vh;
+  background: #f4f6f9; /* Light modern background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding-bottom: 40px;
+}
+
+/* =====================================
+   CONTENT WRAPPER
+   ===================================== */
+.contentContainer {
+  padding: 40px 30px;
+  max-width: 1200px; /* Wider container for larger cards */
+  margin: auto;
+}
+
+/* =====================================
+   HEADING STYLING
+   ===================================== */
+.mainHeading {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2c3e50;
+  border-left: 6px solid #e67e22;
+  padding-left: 12px;
+  margin-top: 30px;
+  letter-spacing: 0.3px;
+}
+
+/* =====================================
+   ANOMALY CARD GRID
+   ===================================== */
+.anomalyGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); /* wider cards */
+  gap: 25px;
+  margin-top: 25px;
+}
+
+/* =====================================
+   INDIVIDUAL CARD STYLING
+   ===================================== */
+.anomalyCard {
+  padding: 24px 28px;
+  border-left: 5px solid var(--border-accent, #3498db);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.anomalyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================
+   CARD HEADER
+   ===================================== */
+.anomalyHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.anomalyType {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-transform: capitalize;
+}
+
+/* Severity Color Variants */
+.anomalySeverity {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.anomalySeverity.low {
+  color: #27ae60; /* Green */
+}
+
+.anomalySeverity.medium {
+  color: #f1c40f; /* Yellow */
+}
+
+.anomalySeverity.high {
+  color: #e74c3c; /* Red */
+}
+
+/* =====================================
+   CARD BODY DETAILS
+   ===================================== */
+.anomalyUser {
+  color: #666;
+  margin: 6px 0;
+  font-size: 15px;
+}
+
+.anomalyDetails {
+  font-size: 14px;
+  color: #888;
+  line-height: 1.5;
+}
+
+/* =====================================
+   RESPONSIVENESS
+   ===================================== */
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 25px 15px;
+  }
+
+  .mainHeading {
+    font-size: 24px;
+  }
+
+  .anomalyGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .anomalyCard {
+    padding: 20px;
+  }
+}

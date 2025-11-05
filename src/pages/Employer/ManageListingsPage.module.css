@@ -1,0 +1,78 @@
+/* This file should be named src/pages/Employer/ManageListingsPage.module.css */
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.contentContainer {
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.mainHeading {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tableHeader {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  background-color: #f2f2f2;
+}
+
+.tableCell {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.nameLink {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.viewButton {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: background-color 0.2s;
+}
+
+.viewButton:hover {
+  background-color: #0056b3;
+}
+
+.closeButton {
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.closeButton:hover {
+  background-color: #c82333;
+}

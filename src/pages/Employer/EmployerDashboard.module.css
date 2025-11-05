@@ -1,0 +1,277 @@
+/* ===========================================================
+   GLOBAL THEME & VARIABLES
+   =========================================================== */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --background-color: #f0f2f5;
+  --text-color: #212529;
+  --text-muted: #6c757d;
+  --border-color: #dee2e6;
+  --shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+  --border-radius: 0.5rem;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 1.75rem;
+  --line-height-base: 1.5;
+  --transition-base: all 0.3s ease-in-out;
+}
+
+/* ===========================================================
+   BASE STYLES
+   =========================================================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.pageContainer {
+  min-height: 100vh;
+  background-color: var(--background-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================================================
+   NAVBAR STYLING
+   =========================================================== */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: var(--spacing-md) var(--spacing-xl);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.brandLink {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition-base);
+}
+
+.brandLink:hover {
+  color: var(--light-color);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--spacing-lg);
+}
+
+.navLink {
+  color: var(--light-color);
+  text-decoration: none;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  padding: 0.4rem 0.8rem;
+  transition: var(--transition-base);
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--light-color);
+}
+
+.logoutButton {
+  background-color: var(--danger-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.4rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.logoutButton:hover {
+  background-color: #b52d28;
+  transform: scale(1.05);
+}
+
+/* ===========================================================
+   CONTENT STYLING
+   =========================================================== */
+.contentContainer {
+  flex: 1;
+  padding: var(--spacing-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mainHeading {
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-xxl);
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.contentContainer {
+  padding: var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+
+.card {
+  background: #fff;
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.cardHeading {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+.statNumber {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+}
+
+.statLabel {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===========================================================
+   LISTING STYLING
+   =========================================================== */
+.listingList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listingItem {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition-base);
+}
+
+.listingItem:hover {
+  background-color: var(--light-color);
+  padding-left: var(--spacing-sm);
+}
+
+.listingItem:last-child {
+  border-bottom: none;
+}
+
+.listingTitle {
+  font-weight: 600;
+  color: var(--text-color);
+  font-size: var(--font-size-base);
+}
+
+.listingMeta {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+}
+
+/* ===========================================================
+   RESPONSIVE DESIGN
+   =========================================================== */
+@media (max-width: 768px) {
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .navList {
+    margin-top: var(--spacing-sm);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+  }
+
+  .contentContainer {
+    padding: var(--spacing-lg);
+  }
+
+  .mainHeading {
+    font-size: var(--font-size-xl);
+  }
+
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================================================
+   ACCESSIBILITY & PRINT
+   =========================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
+@media print {
+  .card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .nav {
+    display: none;
+  }
+}

@@ -1,0 +1,83 @@
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc, #eef2f6); /* soft professional background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+.contentContainer {
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.mainHeading {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 30px 0 20px;
+  border-left: 6px solid #007bff;
+  padding-left: 12px;
+}
+
+.jobGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.jobCard {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 25px;
+  border-left: 5px solid #007bff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jobCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.jobTitle {
+  margin: 0 0 8px;
+  color: #007bff;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.jobMeta {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.jobDescription {
+  margin: 10px 0 20px;
+  color: #555;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.applyButton {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  background-color: #28a745;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.15s;
+}
+
+.applyButton:hover {
+  background-color: #218838;
+  transform: scale(1.03);
+}
+
+.applyButton:active {
+  transform: scale(0.98);
+}

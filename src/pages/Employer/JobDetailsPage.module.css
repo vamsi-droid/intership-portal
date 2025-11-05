@@ -1,0 +1,41 @@
+/* This file should be named src/pages/Employer/JobDetailsPage.module.css */
+.pageContainer {
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.contentContainer {
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.mainHeading {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+.jobDescription {
+  color: #666;
+  font-size: 16px;
+}
+
+.applicationsHeading {
+  margin-top: 40px;
+  font-size: 24px;
+  color: #007bff;
+}
+
+.applicationsGrid {
+  display: grid;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.notFoundHeading {
+  text-align: center;
+  margin-top: 50px;
+}

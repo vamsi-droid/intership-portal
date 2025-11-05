@@ -1,0 +1,139 @@
+/* src/pages/Student/StudentDashboard.module.css */
+
+.pageContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #eef2f6 0%, #ffffff 100%);
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  color: #2c3e50;
+  padding-bottom: 40px;
+}
+
+.contentContainer {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.mainHeading {
+  margin-top: 20px;
+  font-size: 32px;
+  font-weight: 600;
+  color: #1a237e;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e6ed;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.cardHeading {
+  margin-top: 0;
+  color: #0d47a1;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cardText {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.progressBarContainer {
+  width: 100%;
+  height: 12px;
+  background-color: #f1f3f5;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #42a5f5, #1e88e5);
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.statNumber {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a237e;
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: #6c757d;
+  margin-top: 4px;
+}
+
+.actionCard {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e6ed;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+
+.actionCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.actionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.actionItem {
+  padding: 14px 0;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: color 0.3s ease;
+}
+
+.actionItem:hover .actionText {
+  color: #1e88e5;
+}
+
+.actionItem:last-child {
+  border-bottom: none;
+}
+
+.actionText {
+  margin: 0;
+  font-size: 15px;
+  color: #495057;
+  font-weight: 500;
+}

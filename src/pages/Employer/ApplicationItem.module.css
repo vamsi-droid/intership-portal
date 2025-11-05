@@ -1,0 +1,71 @@
+/* This file should be named src/pages/Employer/ApplicationItem.module.css */
+.card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  margin: 0;
+  color: #333;
+}
+
+.nameLink {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.matchScore {
+  font-weight: bold;
+  color: green;
+  font-size: 14px;
+}
+
+.statusText {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.statusGroup {
+  margin-top: 10px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.buttonGroup {
+  margin-top: 15px;
+}
+
+.scheduleButton {
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.scheduleButton:hover {
+  background-color: #218838;
+}

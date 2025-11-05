@@ -1,0 +1,70 @@
+.pageContainer {
+  min-height: 100vh;
+  background: #f4f6f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.contentContainer {
+  padding: 30px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.mainHeading {
+  font-size: 30px;
+  color: #2c3e50;
+  margin: 20px 0;
+  border-left: 6px solid #007bff;
+  padding-left: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-top: 20px;
+}
+
+.tableHeader {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+}
+
+.tableCell {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.tableRow:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.nameLink {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nameLink:hover {
+  text-decoration: underline;
+}
+
+.deleteButton {
+  padding: 8px 12px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.deleteButton:hover {
+  background: #c0392b;
+}

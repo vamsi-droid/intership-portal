@@ -1,0 +1,69 @@
+/* This file should be named src/pages/public/LandingPage.module.css */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.mainHeading {
+  font-size: 3rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subHeading {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.cardHeading {
+  font-size: 1.5rem;
+  color: #007bff;
+  margin: 0 0 10px;
+}
+
+.cardText {
+  color: #555;
+  margin: 0 0 20px;
+}
+
+.loginButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.card:hover .loginButton {
+  background-color: #0056b3;
+}
