@@ -3,32 +3,49 @@
    ===================================== */
 .pageContainer {
   min-height: 100vh;
-  background: #f4f6f9; /* Light modern background */
+  background: var(--page-bg);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  padding-bottom: 40px;
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.pageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
 }
 
 /* =====================================
    CONTENT WRAPPER
    ===================================== */
 .contentContainer {
-  padding: 40px 30px;
-  max-width: 1200px; /* Wider container for larger cards */
+  padding: 60px 20px;
+  max-width: 1200px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* =====================================
    HEADING STYLING
    ===================================== */
 .mainHeading {
-  font-size: 30px;
-  font-weight: 700;
-  color: #2c3e50;
-  border-left: 6px solid #e67e22;
-  padding-left: 12px;
-  margin-top: 30px;
-  letter-spacing: 0.3px;
+  font-size: 42px;
+  font-weight: 800;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0 30px;
+  border-left: 6px solid var(--accent-blue);
+  padding-left: 15px;
+  letter-spacing: -0.5px;
 }
 
 /* =====================================
@@ -36,26 +53,63 @@
    ===================================== */
 .anomalyGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); /* wider cards */
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   gap: 25px;
-  margin-top: 25px;
+  margin-top: 40px;
 }
 
 /* =====================================
    INDIVIDUAL CARD STYLING
    ===================================== */
 .anomalyCard {
-  padding: 24px 28px;
-  border-left: 5px solid var(--border-accent, #3498db);
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  padding: 30px;
+  background: var(--card-bg);
+  border-left: 5px solid var(--accent-blue);
+  border-radius: 16px;
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--card-shadow);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.anomalyCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+  pointer-events: none;
+}
+
+.anomalyCard:hover::before {
+  left: 100%;
 }
 
 .anomalyCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* Severity-based border colors */
+.anomalyCard:has(.anomalySeverity[style*="rgb(220, 53, 69)"]),
+.anomalyCard:has(.anomalySeverity[style*="rgb(239, 68, 68)"]),
+.anomalyCard:has(.anomalySeverity[style*="#dc3545"]) {
+  border-left-color: #ef4444;
+}
+
+.anomalyCard:has(.anomalySeverity[style*="rgb(255, 193, 7)"]),
+.anomalyCard:has(.anomalySeverity[style*="#ffc107"]) {
+  border-left-color: #eab308;
+}
+
+.anomalyCard:has(.anomalySeverity[style*="rgb(23, 162, 184)"]),
+.anomalyCard:has(.anomalySeverity[style*="#17a2b8"]) {
+  border-left-color: #06b6d4;
 }
 
 /* =====================================
@@ -65,49 +119,53 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  gap: 12px;
 }
 
 .anomalyType {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   text-transform: capitalize;
+  margin: 0;
 }
 
-/* Severity Color Variants */
+/* =====================================
+   SEVERITY BADGE
+   ===================================== */
 .anomalySeverity {
   font-weight: 700;
-  font-size: 14px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.anomalySeverity.low {
-  color: #27ae60; /* Green */
-}
-
-.anomalySeverity.medium {
-  color: #f1c40f; /* Yellow */
-}
-
-.anomalySeverity.high {
-  color: #e74c3c; /* Red */
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  white-space: nowrap;
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--text-secondary);
 }
 
 /* =====================================
    CARD BODY DETAILS
    ===================================== */
 .anomalyUser {
-  color: #666;
-  margin: 6px 0;
-  font-size: 15px;
+  color: var(--text-secondary);
+  margin: 12px 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .anomalyDetails {
-  font-size: 14px;
-  color: #888;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 8px 0 0 0;
 }
 
 /* =====================================
@@ -115,11 +173,11 @@
    ===================================== */
 @media (max-width: 768px) {
   .contentContainer {
-    padding: 25px 15px;
+    padding: 40px 15px;
   }
 
   .mainHeading {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   .anomalyGrid {
@@ -128,6 +186,49 @@
   }
 
   .anomalyCard {
-    padding: 20px;
+    padding: 24px;
   }
+
+  .anomalyHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .anomalySeverity {
+    align-self: flex-start;
+  }
+}
+
+/* ===== CSS VARIABLES FOR THEMING ===== */
+
+/* DARK THEME (DEFAULT) */
+:root[data-theme='dark'] {
+  --page-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --card-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6));
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-primary: rgba(96, 165, 250, 0.3);
+  --gradient-text: linear-gradient(135deg, #60a5fa, #a78bfa, #ec4899);
+  --card-shadow: 0 0 30px rgba(96, 165, 250, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --hover-shadow: 0 15px 40px rgba(96, 165, 250, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-pink: #ec4899;
+}
+
+/* LIGHT THEME */
+:root[data-theme='light'] {
+  --page-bg: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 50%, #f8f9fa 100%);
+  --card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9));
+  --text-primary: #1f2937;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-primary: rgba(59, 130, 246, 0.2);
+  --gradient-text: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  --card-shadow: 0 0 20px rgba(59, 130, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --hover-shadow: 0 12px 30px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
 }

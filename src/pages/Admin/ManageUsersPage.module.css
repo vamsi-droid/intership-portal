@@ -1,70 +1,185 @@
 .pageContainer {
   min-height: 100vh;
-  background: #f4f6f9;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
+  color: #e2e8f0;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.pageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #60a5fa, transparent);
 }
 
 .contentContainer {
-  padding: 30px 20px;
-  max-width: 1000px;
+  padding: 60px 20px;
+  max-width: 1200px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .mainHeading {
-  font-size: 30px;
-  color: #2c3e50;
-  margin: 20px 0;
-  border-left: 6px solid #007bff;
-  padding-left: 10px;
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0 30px;
+  border-left: 6px solid #60a5fa;
+  padding-left: 15px;
+  letter-spacing: -0.5px;
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: white;
-  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6));
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  margin-top: 20px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  box-shadow: 
+    0 0 30px rgba(96, 165, 250, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  margin-top: 30px;
 }
 
 .tableHeader {
-  background: #007bff;
-  color: white;
-  padding: 12px;
-  font-weight: 600;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+  color: #60a5fa;
+  padding: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  border-bottom: 2px solid rgba(96, 165, 250, 0.3);
 }
 
 .tableCell {
-  padding: 12px;
-  border-bottom: 1px solid #eee;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(96, 165, 250, 0.1);
+  color: #cbd5e1;
+}
+
+.tableRow {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tableRow:hover {
+  background: rgba(96, 165, 250, 0.1);
+  transform: scale(1.01);
 }
 
 .tableRow:nth-child(even) {
-  background: #f9f9f9;
+  background: rgba(15, 23, 42, 0.3);
+}
+
+.tableRow:nth-child(even):hover {
+  background: rgba(96, 165, 250, 0.15);
 }
 
 .nameLink {
-  color: #007bff;
-  font-weight: 600;
+  color: #60a5fa;
+  font-weight: 700;
   text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: inline-block;
+}
+
+.nameLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nameLink:hover {
-  text-decoration: underline;
+  color: #a78bfa;
+}
+
+.nameLink:hover::after {
+  width: 100%;
 }
 
 .deleteButton {
-  padding: 8px 12px;
-  background: #e74c3c;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
   color: white;
-  border: none;
-  border-radius: 5px;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.deleteButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
 }
 
 .deleteButton:hover {
-  background: #c0392b;
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+  transform: translateY(-2px);
+}
+
+.deleteButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.deleteButton:active {
+  transform: translateY(0);
+}
+
+/* =====================================
+   RESPONSIVENESS
+   ===================================== */
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 40px 15px;
+  }
+
+  .mainHeading {
+    font-size: 32px;
+  }
+
+  .table {
+    font-size: 0.9rem;
+  }
+
+  .tableHeader,
+  .tableCell {
+    padding: 12px;
+  }
+
+  .deleteButton {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
 }

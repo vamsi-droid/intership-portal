@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import styles from './SignupPage.module.css';
+import FloatingThemeToggle from '../../components/FloatingThemeToggle';
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -106,6 +107,7 @@ const SignupPage = () => {
           Already have an account? <Link to="/login">Log In</Link>
         </p>
       </motion.div>
+      <FloatingThemeToggle />
     </div>
   );
 };

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import styles from './AdminNavbar.module.css';
 
 const AdminNavbar = () => {
     const { logout } = useAuth();
-    const [unreadCount, setUnreadCount] = useState(3); // Placeholder for 3 unread alerts
+    const { isDark, toggleTheme } = useTheme();
+    const [unreadCount, setUnreadCount] = useState(3);
 
     return (
         <nav className={styles.nav}>
@@ -19,7 +21,6 @@ const AdminNavbar = () => {
                 <li className={styles.navItem}><Link to="/admin/manage-users" className={styles.navLink}>Manage Users</Link></li>
                 <li className={styles.navItem}><Link to="/admin/reports" className={styles.navLink}>Reports</Link></li>
                 
-                {/* NEW FEATURE: ANOMALY ALERT BUTTON */}
                 <li className={styles.navItem}>
                     <Link to="/admin/anomalies" className={`${styles.navLink} ${styles.alertLink}`}>
                         Anomaly Detection
@@ -29,6 +30,18 @@ const AdminNavbar = () => {
                     </Link>
                 </li>
                 <li className={styles.navItem}><Link to="/admin/journey-map" className={styles.navLink}>Journey Map</Link></li>
+                
+                {/* THEME TOGGLE - NEW */}
+                <li className={styles.navItem}>
+                    <button 
+                        onClick={toggleTheme} 
+                        className={styles.themeToggle} 
+                        title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+                    >
+                        {isDark ? '☀️' : '🌙'}
+                    </button>
+                </li>
+
                 <li className={styles.navItem}><button onClick={logout} className={styles.logoutButton}>Log Out</button></li>
             </ul>
         </nav>

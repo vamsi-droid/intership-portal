@@ -1,0 +1,272 @@
+/* =====================================
+   PAGE BASE STYLING
+   ===================================== */
+.pageContainer {
+  min-height: 100vh;
+  background: var(--page-bg);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.pageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+}
+
+/* =====================================
+   CONTENT WRAPPER
+   ===================================== */
+.contentContainer {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* =====================================
+   HEADING STYLING
+   ===================================== */
+.mainHeading {
+  font-size: 42px;
+  font-weight: 800;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0 40px;
+  border-left: 6px solid var(--accent-blue);
+  padding-left: 15px;
+  letter-spacing: -0.5px;
+}
+
+/* =====================================
+   FILTER SECTION
+   ===================================== */
+.filterSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border-primary);
+}
+
+.filterLabel {
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+}
+
+.filterSelect {
+  padding: 8px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filterSelect:hover {
+  border-color: var(--accent-blue);
+}
+
+.filterSelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+/* =====================================
+   TABLE CARD
+   ===================================== */
+.tableCard {
+  background: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* =====================================
+   TABLE STYLING
+   ===================================== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+  color: var(--accent-blue);
+  padding: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  border-bottom: 2px solid var(--border-primary);
+}
+
+.tr {
+  border-bottom: 1px solid var(--border-primary);
+  transition: background 0.3s ease;
+}
+
+.tr:hover {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.td {
+  padding: 16px;
+  color: var(--text-secondary);
+}
+
+/* =====================================
+   STUDENT INFO
+   ===================================== */
+.studentName {
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.studentEmail {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* =====================================
+   STATUS SELECT
+   ===================================== */
+.statusSelect {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border-primary);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.statusSelect:hover {
+  border-color: var(--accent-blue);
+}
+
+.statusSelect:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+.statusSelect.placed {
+  border-left: 3px solid #10b981;
+}
+
+.statusSelect.unplaced {
+  border-left: 3px solid #ef4444;
+}
+
+/* =====================================
+   COMPANY INPUT
+   ===================================== */
+.companyInput {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.companyInput:focus {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+}
+
+/* =====================================
+   RESPONSIVENESS
+   ===================================== */
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 40px 15px;
+  }
+
+  .mainHeading {
+    font-size: 32px;
+  }
+
+  .filterSection {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .th,
+  .td {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .studentEmail {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== CSS VARIABLES FOR THEMING ===== */
+
+/* DARK THEME (DEFAULT) */
+:root[data-theme='dark'] {
+  --page-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --card-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6));
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-primary: rgba(96, 165, 250, 0.3);
+  --gradient-text: linear-gradient(135deg, #60a5fa, #a78bfa, #ec4899);
+  --card-shadow: 0 0 30px rgba(96, 165, 250, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --input-bg: rgba(15, 23, 42, 0.4);
+}
+
+/* LIGHT THEME */
+:root[data-theme='light'] {
+  --page-bg: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 50%, #f8f9fa 100%);
+  --card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9));
+  --text-primary: #1f2937;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-primary: rgba(59, 130, 246, 0.2);
+  --gradient-text: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  --card-shadow: 0 0 20px rgba(59, 130, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --input-bg: rgba(255, 255, 255, 0.6);
+}

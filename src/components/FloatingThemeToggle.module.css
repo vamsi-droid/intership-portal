@@ -1,0 +1,47 @@
+.floatingToggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+}
+
+.floatingToggle:hover {
+  transform: scale(1.15) rotate(20deg);
+  box-shadow: 0 8px 25px rgba(96, 165, 250, 0.5);
+}
+
+.floatingToggle:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .floatingToggle {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ===== CSS VARIABLES ===== */
+
+:root[data-theme='dark'] {
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+}
+
+:root[data-theme='light'] {
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+}

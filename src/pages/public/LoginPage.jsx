@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; // <-- CRITICAL FIX: Ensures motion is defined
 import { useAuth } from '../../context/AuthContext';
 import styles from './LoginPage.module.css';
+import FloatingThemeToggle from '../../components/FloatingThemeToggle';
 
 // --- CENTRALIZED HARDCODED USER DATA ---
 const HARDCODED_USERS = [
@@ -102,6 +103,7 @@ const LoginPage = () => {
           </Link>
         </div>
       </motion.div>
+      <FloatingThemeToggle />
     </div>
   );
 };

@@ -1,83 +1,248 @@
+/* =====================================
+   PAGE BASE STYLING
+   ===================================== */
 .pageContainer {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc, #eef2f6); /* soft professional background */
+  background: var(--page-bg);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50;
+  color: var(--text-primary);
+  position: relative;
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
+.pageContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+}
+
+/* =====================================
+   CONTENT WRAPPER
+   ===================================== */
 .contentContainer {
-  padding: 30px 20px;
+  padding: 60px 20px;
   max-width: 1100px;
   margin: auto;
+  position: relative;
+  z-index: 1;
 }
 
+/* =====================================
+   HEADING STYLING
+   ===================================== */
 .mainHeading {
-  font-size: 32px;
-  font-weight: 700;
-  color: #2c3e50;
-  margin: 30px 0 20px;
-  border-left: 6px solid #007bff;
-  padding-left: 12px;
+  font-size: 42px;
+  font-weight: 800;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 20px 0 40px;
+  border-left: 6px solid var(--accent-blue);
+  padding-left: 15px;
+  letter-spacing: -0.5px;
 }
 
+/* =====================================
+   JOB GRID
+   ===================================== */
 .jobGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 25px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
+/* =====================================
+   JOB CARD STYLING
+   ===================================== */
 .jobCard {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 25px;
-  border-left: 5px solid #007bff;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 28px;
+  border: 1px solid var(--border-primary);
+  border-left: 5px solid var(--accent-blue);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Light sweep effect on hover */
+.jobCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s;
+  pointer-events: none;
+}
+
+.jobCard:hover::before {
+  left: 100%;
 }
 
 .jobCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+  border-left-color: var(--accent-purple);
 }
 
+/* =====================================
+   JOB TITLE
+   ===================================== */
 .jobTitle {
-  margin: 0 0 8px;
-  color: #007bff;
+  margin: 0 0 12px;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: capitalize;
 }
 
+/* =====================================
+   JOB META (Company & Location)
+   ===================================== */
 .jobMeta {
-  margin: 0;
-  color: #6c757d;
-  font-size: 14px;
-  margin-bottom: 10px;
+  margin: 0 0 12px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
+/* =====================================
+   JOB DESCRIPTION
+   ===================================== */
 .jobDescription {
-  margin: 10px 0 20px;
-  color: #555;
-  line-height: 1.5;
-  font-size: 15px;
+  margin: 0 0 20px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  flex-grow: 1;
 }
 
+/* =====================================
+   APPLY BUTTON
+   ===================================== */
 .applyButton {
-  padding: 10px 22px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 6px;
-  background-color: #28a745;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #10b981, #059669);
   color: white;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.25s, transform 0.15s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+}
+
+.applyButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
 .applyButton:hover {
-  background-color: #218838;
-  transform: scale(1.03);
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px);
+}
+
+.applyButton:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .applyButton:active {
-  transform: scale(0.98);
+  transform: translateY(0);
+}
+
+/* =====================================
+   RESPONSIVENESS
+   ===================================== */
+@media (max-width: 768px) {
+  .contentContainer {
+    padding: 40px 15px;
+  }
+
+  .mainHeading {
+    font-size: 32px;
+  }
+
+  .jobGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .jobCard {
+    padding: 20px;
+  }
+
+  .jobTitle {
+    font-size: 1.1rem;
+  }
+
+  .applyButton {
+    width: 100%;
+  }
+}
+
+/* ===== CSS VARIABLES FOR THEMING ===== */
+
+/* DARK THEME (DEFAULT) */
+:root[data-theme='dark'] {
+  --page-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  --card-bg: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6));
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-primary: rgba(96, 165, 250, 0.3);
+  --gradient-text: linear-gradient(135deg, #60a5fa, #a78bfa, #ec4899);
+  --card-shadow: 0 0 30px rgba(96, 165, 250, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --hover-shadow: 0 15px 40px rgba(96, 165, 250, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  --accent-blue: #60a5fa;
+  --accent-purple: #a78bfa;
+  --accent-pink: #ec4899;
+}
+
+/* LIGHT THEME */
+:root[data-theme='light'] {
+  --page-bg: linear-gradient(135deg, #f8f9fa 0%, #f0f4f8 50%, #f8f9fa 100%);
+  --card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 249, 250, 0.9));
+  --text-primary: #1f2937;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --border-primary: rgba(59, 130, 246, 0.2);
+  --gradient-text: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+  --card-shadow: 0 0 20px rgba(59, 130, 246, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --hover-shadow: 0 12px 30px rgba(59, 130, 246, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  --accent-blue: #3b82f6;
+  --accent-purple: #8b5cf6;
+  --accent-pink: #ec4899;
 }
